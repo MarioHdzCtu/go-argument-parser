@@ -3,11 +3,11 @@ package namespace
 import (
 	"fmt"
 
-	app "github.com/MarioHdzCtu/argParser/src/parser"
+	argument "github.com/MarioHdzCtu/argParser/argparser/argument"
 )
 
 type Namespace struct {
-	arguments []app.Argument
+	arguments []argument.Argument
 }
 
 func (n *Namespace) PrintNamespace() {
@@ -18,7 +18,7 @@ func (n *Namespace) PrintNamespace() {
 	fmt.Println(arguments_string)
 }
 
-func NewNamespace(args []app.Argument) *Namespace {
+func NewNamespace(args []argument.Argument) *Namespace {
 	ns := Namespace{arguments: args}
 
 	return &ns

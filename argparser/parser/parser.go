@@ -6,22 +6,9 @@ import (
 	"slices"
 	"strconv"
 	"strings"
-)
 
-type Argument struct {
-	Name       string
-	Flag       string
-	Nargs      int
-	Vconst     string
-	Vdefault   any
-	Vtype      string
-	Choices    []any
-	Required   bool
-	Help       string
-	Metavar    string
-	Dest       string
-	Deprecated bool
-}
+	argument "github.com/MarioHdzCtu/argParser/argparser/argument"
+)
 
 type ArgParserOptions struct {
 	Prog                string
@@ -53,7 +40,7 @@ type argumentParser struct {
 	AddHelp             bool
 	AllowAbbrev         bool
 	ExitOnError         bool
-	arguments           []Argument
+	arguments           []argument.Argument
 	ParsedArguments     map[string]any
 }
 
@@ -76,7 +63,7 @@ func (ap *argumentParser) PrintHelp() {
 
 }
 
-func (ap *argumentParser) AddArgument(a Argument) {
+func (ap *argumentParser) AddArgument(a argument.Argument) {
 	ap.arguments = append(ap.arguments, a)
 }
 

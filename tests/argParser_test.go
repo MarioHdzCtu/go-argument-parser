@@ -3,6 +3,7 @@ package tests
 import (
 	"testing"
 
+	argument "github.com/MarioHdzCtu/argParser/src/argument"
 	namespace "github.com/MarioHdzCtu/argParser/src/namespace"
 	app "github.com/MarioHdzCtu/argParser/src/parser"
 )
@@ -72,6 +73,6 @@ func TestAutoHelp(t *testing.T) {
 }
 
 func TestNamespacePrint(t *testing.T) {
-	ns := namespace.NewNamespace([]app.Argument{app.Argument{Name: "TestArg"}})
+	ns := namespace.NewNamespace([]argument.Argument{argument.Argument{Name: "TestArg"}})
 	ns.PrintNamespace()
 }

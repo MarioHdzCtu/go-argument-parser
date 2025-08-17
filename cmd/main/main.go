@@ -3,17 +3,17 @@ package main
 import (
 	"fmt"
 
-	app "github.com/MarioHdzCtu/argParser/src/parser"
+	argparser "github.com/MarioHdzCtu/argParser/argparser"
 )
 
 func main() {
-	ap := app.NewArgumentParser(app.ArgParserOptions{
+	ap := argparser.NewArgumentParser(argparser.ArgParserOptions{
 		Prog:   "mycli",
 		Epilog: "This is an epilog",
 	})
-	ap.AddArgument(app.Argument{Name: "--name", Vtype: "string", Required: true, Flag: "-n"})
-	ap.AddArgument(app.Argument{Name: "--age", Vtype: "int", Required: true})
 
+	ap.AddArgument(*argparser.NewArgument(argparser.ArgumentOptions{Name: "--name", Vtype: "string", Required: argparser.BoolP(true)}))
+	ap.AddArgument(*argparser.NewArgument(argparser.ArgumentOptions{Name: "--age", Vtype: "int", Required: argparser.BoolP(true)}))
 	ap = ap.ParseArgs()
 
 	fmt.Println(ap.ParsedArguments["age"])
